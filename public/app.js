@@ -11,6 +11,15 @@ const buildCatsArray = function(){
   return [cat1, cat2, cat3]
 }
 
+var createImageListItem = function(imgLink) {
+  let newImageListItem = document.createElement("li");
+  let newImage = document.createElement("img");
+  newImage.src = imgLink;
+  newImage.className = "cat-image";
+  newImageListItem.appendChild(newImage);
+  return newImageListItem;
+}
+
 const addToUnorderedList = function(parent, child){
   parent.appendChild(child);
 }
@@ -37,6 +46,7 @@ const addCats = function(catsArray){
     let catList = createUnorderedList("cat");
     addToUnorderedList(catList, createListItem(cat.name, "Name: "));
     addToUnorderedList(catList, createListItem(cat.favFood, "Munchies of choice: "));
+    addToUnorderedList(catList, createImageListItem(cat.imgLink));
     addUnorderedListToSection(catList);
   }
 }
